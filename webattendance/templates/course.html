@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Class Attendance Management System</title>
+
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <a href="/index" class="logo"> <i class="fas fa-school"></i> CLASS ATTENDANCE </a>
+
+      <nav class="navbar">
+         <div id="close-navbar" class="fas fa-times"></div>
+         <a href="/index">HOME</a>
+  
+         <a href="/course">TEACHERS</a>
+         <a href="/attendancereportstudent">REPORT</a>
+         <a href="/Snotice">NOTICE</a>
+         <a href="/Test">TEST</a>
+         <a href="/logout">LOGOUT</a>
+      </nav>
+   <div class="icons">
+      <div id="account-btn" class="fas fa-user"></div>
+      <div id="menu-btn" class="fas fa-bars"></div>
+   </div>
+
+</header>
+
+<!-- account form section starts  -->
+
+<div class="account-form">
+
+   <div id="close-form" class="fas fa-times"></div>
+
+   <!-- <div class="buttons">
+      <span class="btn active login-btn">login</span>
+      <span class="btn register-btn">register</span>
+   </div> -->
+
+
+</div>
+
+<!-- account form section ends -->
+
+<!-- header section ends -->
+
+<section class="heading-link">
+   <h3>REGISTER TEACHER </h3>
+   <p> <a href="/index">home</a> / REGISTER </p>
+</section>
+
+<section class="courses">
+
+   <h1 class="heading"> Our Collage Teacher </h1>
+
+   <div class="box-container">
+      {%- for i in result -%}
+      <div class="box">
+         <div class="image">
+            <img src="http://localhost:5000/{{i[5]}}" alt="">
+            <h3>{{i[1]}}</h3>
+         </div>
+         <div class="content">
+            <h3>{{i[2]}}!</h3>
+            <p>{{i[4]}}</p>
+         </div>
+      </div>
+      {%- endfor -%}
+     
+      
+
+      
+   </div>
+
+   <div class="load-more"> <div class="btn">load more</div> </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+  
+
+   
+   <div class="credit"></div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+<!-- swiper js link  -->
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="../static/js/script.js"></script>
+
+</body>
+</html>

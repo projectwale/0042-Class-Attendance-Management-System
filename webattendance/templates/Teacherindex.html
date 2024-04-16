@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Class Attendance Management System</title>
+
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="../static/css/style.css">
+
+   <link rel="stylesheet" href="../static/css/main.css">
+ 
+</head>
+
+<body>
+
+   <!-- header section starts  -->
+
+   <header class="header">
+
+      <a href="/teacherindex" class="logo">  <i class="fas fa-school"></i>CLASS ATTENDANCE </a>
+
+      <nav class="navbar">
+         <div id="close-navbar" class="fas fa-times"></div>
+         <a href="/teacherindex">HOME</a>
+         <a href="/registration">STUDENTS</a>
+
+         <a href="/attendance">ATTENDANCE</a>
+         <a href="/attendancereport">REPORT</a>
+         <a href="/Tnotice">NOTICE</a>
+         <a href="/Exam">EXAM</a>
+         <a href="/result">RESULT</a>
+         <a href="/logout">LOGOUT</a>
+      </nav>
+
+
+
+
+   </header>
+
+   <!-- account form section starts  -->
+
+   <div class="account-form">
+
+      <div id="close-form" class="fas fa-times"></div>
+
+      <div class="buttons">
+         <span class="btn active login-btn">login</span>
+         <span class="btn register-btn">register</span>
+      </div>
+
+
+
+   </div>
+   {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   <div  class="alert alert-warning alert-dismissible fade show" role="alert">
+      <ul class="mb-0">
+         {% for message in messages %}
+         <li>{{ message }}</li>
+         {% endfor %}
+      </ul>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>
+   {% endif %}
+   {% endwith %}
+
+
+   <!-- account form section ends -->
+
+   <!-- header section ends -->
+
+   <!-- home section starts  -->
+
+   <section class="home">
+
+      <div class="swiper home-slider">
+
+         <div class="swiper-wrapper">
+
+            <section class="swiper-slide slide" style="background: url(../static/images/home-slide-1.jpg) no-repeat;">
+               <div class="content">
+                  <h3>the best courses you will find find here!</h3>
+                  <p>The greatest glory in living lies not in never falling, but in rising every time we fall.</p>
+
+                  <a href="#" class="btn">get started</a>
+               </div>
+            </section>
+
+            <section class="swiper-slide slide" style="background: url(../static/images/home-slide-2.jpg) no-repeat;">
+               <div class="content">
+                  <h3>the best courses you will find find here!</h3>
+                  <p>The greatest glory in living lies not in never falling, but in rising every time we fall.</p>
+
+                  <a href="#" class="btn">get started</a>
+               </div>
+            </section>
+
+            <section class="swiper-slide slide" style="background: url(../static/images/home-slide-3.jpg) no-repeat;">
+               <div class="content">
+                  <h3>the best courses you will find find here!</h3>
+                  <p>The greatest glory in living lies not in never falling, but in rising every time we fall.</p>
+
+                  <a href="#" class="btn">get started</a>
+               </div>
+            </section>
+
+         </div>
+
+         <div class="swiper-pagination"></div>
+
+      </div>
+
+   </section>
+
+   <!-- home section ends -->
+
+   <!-- subjects section starts  -->
+
+
+
+
+
+
+
+
+
+   <!-- footer section starts  -->
+
+   <section class="footer">
+
+
+  
+      <div class="credit"></div>
+
+   </section>
+
+   <!-- footer section ends -->
+
+
+
+
+
+
+
+   <!-- swiper js link  -->
+   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+
+</body>
+
+</html>

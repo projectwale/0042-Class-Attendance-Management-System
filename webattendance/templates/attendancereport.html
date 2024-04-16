@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Class Attendance Management System</title>
+
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="../static/css/style.css">
+   <!-- Bootstrap CSS -->
+   <link href="{{ url_for('static', filename='css1/bootstrap.min.css') }}" rel="stylesheet">
+   <!-- Site CSS -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='css1/style.css') }}">
+   <!-- Fontawesome CSS -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='css1/all.min.css') }}">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='css1/responsive.css') }}">
+</head>
+
+<body>
+
+   <!-- header section starts  -->
+
+   <header class="header">
+
+      <a href="/teacherindex" class="logo">  <i class="fas fa-school"></i>CLASS ATTENDANCE </a>
+
+   <nav class="navbar">
+      <div id="close-navbar" class="fas fa-times"></div>
+      <a href="/teacherindex">HOME</a>
+      <a href="/registration">STUDENTS</a>
+
+      <a href="/attendance">ATTENDANCE</a>
+      <a href="/attendancereport">REPORT</a>
+      <a href="/Tnotice">NOTICE</a>
+      <a href="/Exam">EXAM</a>
+      <a href="/result">RESULT</a>
+      <a href="/logout">LOGOUT</a>
+   </nav>
+
+
+   </header>
+
+   <!-- account form section starts  -->
+
+   <div class="account-form">
+
+      <div id="close-form" class="fas fa-times"></div>
+
+      <!-- <div class="buttons">
+      <span class="btn active login-btn">login</span>
+      <span class="btn register-btn">register</span>
+   </div> -->
+
+
+   </div>
+
+   <!-- account form section ends -->
+
+   <!-- header section ends -->
+
+   <section class="heading-link">
+      <h3>Attendance</h3>
+     
+   </section>
+
+   <section class="courses">
+
+
+      <div class="box-container">
+
+         <div class="box-container">
+            <!--Main layout-->
+            <main class="pt-5 mx-lg-5">
+               <div class="container-fluid mt-5">
+                  <div class="row">
+                     
+
+
+                     <div class="col-md-4 col-lg-4">
+                        <div class="card">
+                           <div class="card-header">
+                              Action
+                           </div>
+                           <div class="card-body">
+                              <form action="/reportteacher" method="POST">
+                                 <div class="form-group">
+
+
+                                    <label>Select subjects:</label>
+                                    <select name="filename" class="custom-select" id="live-attendance-class">
+                                       <option value="">Select subjects</option>
+                                       <option value="python">python</option>
+                                       <option value="java">java</option>
+                                       <option value="dbms">dbms</option>
+                                       <option value="blockchain">blockchain</option>
+                                       <option value="Bigdata">Bigdata</option>
+                                       <option value="cloud computing">cloud computing</option>
+                                       <option value="computer Networks">computer Networks</option>
+                                       <option value="IoT">IoT</option>
+
+                                    </select>
+                                    <label>Select Class:</label>
+                                    <select name="Class" class="custom-select" id="live-attendance-class">
+                                       <option value="">Select Class</option>
+                                       <option value="FIRST-YEAR">FIRST YEAR</option>
+                                       <option value="SECOND-YEAR">SECOND YEAR </option>
+                                       <option value="THIRD-YEAR">THIRD YEAR</option>
+                                       <option value="Final-YEAR">FINAL YEAR</option>
+                                    </select>
+
+                                    <label for="input" class="col-form-label">DATE</label>
+                                    <input class="form-control" name="input" type="date" id="date-input"
+                                       required>
+                                 </div>
+                                 <button type="submit" class="btn btn-info">Show Attendance</button>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="col-lg-12 col-md-12" id="display">
+                        <div class="card">
+                           <div class="card-header">
+                              <div class="row">
+                                 <div class="col-md-8">
+                                    Attendance
+                                 </div>
+                                 <div class="col-md-4">
+                                    <a onclick="downloadTableAsCSV()" class="btn btn-info text-right">Download</a>
+                                 </div>
+                              </div>
+                           </div>
+
+                           <div class="card-body">
+                              <table class="table table-striped" id="table">
+                                 <thead>
+                                    <tr>
+                                       <th scope="col">StudentID</th>
+                                       <th scope="col">Department</th>
+                                       <th scope="col">Subject</th>
+                                       <th scope="col">attendancedate</th>
+                                       <th scope="col">attend</th>
+                                       <th scope="col">classname</th>
+                                       <th scope="col">username</th>
+                                       <th scope="col">teachername</th>
+                                    </tr>
+                                 </thead>
+                                 {% for a,b,c,d,e,f,g,h in final_data %}
+                                 <tbody id="attendance-table">
+                                    <tr>
+                                       <td>{{a}}</td>
+                                       <td>{{b}}</td>
+                                       <td>{{c}}</td>
+                                       <td>{{d}}</td>
+                                       <td>{{e}}</td>
+                                       <td>{{f}}</td>
+                                       <td>{{g}}</td>
+                                       <td>{{h}}</td>
+
+                                    </tr>
+                                    {% endfor %}
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+               <!--Grid row-->
+            </main>
+
+         </div>
+      </div>
+
+
+
+
+   </section>
+
+
+
+   <script>
+      function downloadTableAsCSV() {
+         var table = document.getElementById("attendance-table"); // Replace "yourTable" with the ID of your table element
+         var csv = [];
+         var rows = table.rows;
+
+         // Iterate over table rows
+         for (var i = 0; i < rows.length; i++) {
+            var row = [];
+            var cells = rows[i].cells;
+
+            // Iterate over cells in each row
+            for (var j = 0; j < cells.length; j++) {
+               row.push(cells[j].innerText);
+            }
+
+            csv.push(row.join(","));
+         }
+
+         // Create the CSV content
+         var csvContent = csv.join("\n");
+
+         // Create a temporary link and trigger the download
+         var link = document.createElement('a');
+         link.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
+         link.target = '_blank';
+         link.download = 'table_data.csv';
+         document.body.appendChild(link);
+         link.click();
+         document.body.removeChild(link);
+      }
+   </script>
+
+
+
+
+
+
+   <!-- footer section starts  -->
+
+   <section class="footer">
+
+
+
+
+      <div class="credit"></div>
+
+   </section>
+
+   <!-- footer section ends -->
+
+
+
+
+
+
+   <!-- swiper js link  -->
+   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+   <!-- custom js file link  -->
+
+   <script src="{{ url_for('static', filename='js1/jquery.min.js') }}"></script>
+   <script src="{{ url_for('static', filename='js1/bootstrap.min.js') }}"></script>
+   <script src="{{ url_for('static', filename='js1/particles.min.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Class Attendance Management System</title>
+
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <a href="/teacherindex" class="logo">  <i class="fas fa-school"></i>CLASS ATTENDANCE </a>
+
+   <nav class="navbar">
+      <div id="close-navbar" class="fas fa-times"></div>
+      <a href="/teacherindex">HOME</a>
+      <a href="/registration">STUDENTS</a>
+
+      <a href="/attendance">ATTENDANCE</a>
+      <a href="/attendancereport">REPORT</a>
+      <a href="/Tnotice">NOTICE</a>
+      <a href="/Exam">EXAM</a>
+      <a href="/result">RESULT</a>
+      <a href="/logout">LOGOUT</a>
+   </nav>
+
+
+   
+
+</header>
+
+<!-- account form section starts  -->
+
+<div class="account-form">
+
+   <div id="close-form" class="fas fa-times"></div>
+
+   <div class="buttons">
+      <span class="btn active login-btn">login</span>
+      <span class="btn register-btn">register</span>
+   </div>
+
+   
+
+</div>
+
+<!-- account form section ends -->
+
+<!-- header section ends -->
+
+<section class="heading-link">
+   <h3>ADD TEST</h3>
+   <p> <a href="home.html">home</a> / Exam </p>
+</section>
+
+<!-- about section starts  -->
+
+<section class="contact">
+   <div class="row">
+
+   
+      <form  action="/Exam" method="POST">
+         <h3>Questions</h3>
+         <h2><strong>Question 1</strong></h2>
+         <input type="text" placeholder="Question 1" name="question1" class="box">
+         <textarea  name="description1" class="box" placeholder="Question 1 Answer" id="" cols="30" rows="10"></textarea>
+
+
+         <h2><strong>Question 2</strong></h2>
+         <input type="text" placeholder="Question 2" name="question2" class="box">
+         <textarea name="description2"  class="box" placeholder="Question 2 Answer" id="" cols="30" rows="10"></textarea>
+
+
+         <h2><strong>Question 3</strong></h2>
+         <input type="text" placeholder="Question 3" name="question3" class="box">
+         <textarea name="description3"  class="box" placeholder="Question 3 Answer" id="" cols="30" rows="10"></textarea>
+
+
+         <h2><strong>Question 4</strong></h2>
+         <input type="text" placeholder="Question 4" name="question4" class="box">
+         <textarea name="description4"  class="box" placeholder="Question 4 Answer" id="" cols="30" rows="10"></textarea>
+
+         <h2><strong>Question 5</strong></h2>
+         <input type="text" placeholder="Question 5" name="question5"class="box">
+         <textarea name="description5" class="box" placeholder="Question 5 Answer" id="" cols="30" rows="10"></textarea>
+
+
+         <input type="submit" value="submit" class="btn">
+      </form>
+
+   </div>
+   
+</section>
+
+<!-- about section ends -->
+
+
+<!-- students reviews section ends -->
+
+
+
+
+
+
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+  
+
+ 
+   <div class="credit"></div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+<script>
+   window.onload = function () {
+      var message = "{{ msg }}";
+      if (message) {
+         alert(message);
+         window.location.replace("/Exam");
+      }
+   }
+</script>
+
+
+<!-- swiper js link  -->
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="../static/js/script.js"></script>
+
+</body>
+</html>

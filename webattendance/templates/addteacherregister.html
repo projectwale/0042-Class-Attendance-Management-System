@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Class Attendance Management System</title>
+
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="../static/css/style.css">
+   <link rel="stylesheet" href="../static/css/main.css">
+   <style>
+      * {
+         box-sizing: border-box;
+       
+      }
+
+      /************ BEGIN CONTENT CONTAINER  ***************/
+      .content-container {
+         margin: 0 auto;
+         padding-top: 2%;
+         padding-right: 35%;
+         padding-bottom: 10%;
+         padding-left: 15%;
+         max-height: 100%;
+       
+      }
+
+
+
+
+      /************ BEGIN FORM  ***************/
+      input[type=text],
+      select,
+      textarea {
+         width: 100%;
+         padding: 12px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         resize: vertical;
+      }
+
+      label {
+         padding: 12px 12px 12px 0;
+         display: inline-block;
+      }
+
+      input[type=submit] {
+         margin-top: 10px;
+         background-color: #04AA6D;
+         color: white;
+         font-weight: bold;
+         padding: 12px 20px;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+         float: right;
+      }
+
+      input[type=submit]:hover {
+         background-color: #1f1f1f;
+      }
+
+      .form-container {
+         border-radius: 10px;
+         background-color: #f2f2f2;
+         padding: 20px;
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      .col-25 {
+         float: left;
+         width: 25%;
+         margin-top: 6px;
+      }
+
+      .col-75 {
+         float: left;
+         width: 75%;
+         margin-top: 6px;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+         content: "";
+         display: table;
+         clear: both;
+      }
+
+      /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 600px) {
+
+         .col-25,
+         .col-75,
+         input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+         }
+
+         input[type=submit] {
+            margin-top: 10px;
+         }
+      }
+      
+   </style>
+
+</head>
+
+<body>
+
+   <!-- header section starts  -->
+
+   <header class="header">
+      <a href="/adminindex" class="logo"> <i class="fas fa-school"></i> CLASS ATTENDANCE </a>
+
+      <nav class="navbar">
+         <div id="close-navbar" class="fas fa-times"></div>
+         <a href="/adminindex">HOME</a>
+         <!-- <a href="/addteacher">TEACHERS</a> -->
+         <!-- <a href="/createprofile">RESISTRATION</a> -->
+         <!-- <a href="/addstudents">STUDENTS</a> -->
+         <div class="dropdown">
+            <button class="dropbtn">STUDENTS</button>
+            <div class="dropdown-content">
+               <a href="/addstudents">STUDENTS</a>
+               <a href="/createprofile">RESISTRATION</a>
+
+            </div>
+         </div>
+
+         <div class="dropdown">
+            <button class="dropbtn">TEACHERS</button>
+            <div class="dropdown-content">
+               <a href="/addteacher">TEACHERS</a>
+               <a href="/addteacherregister">ADD TEACHERS</a>
+
+            </div>
+         </div>
+
+         <div class="dropdown">
+            <button class="dropbtn">RESULTS</button>
+            <div class="dropdown-content">
+               <a href="/attendancereportadmin">REPORT</a>
+               <a href="/Notice">NOTICE</a>
+
+            </div>
+         </div>
+
+         <!-- <a href="/attendancereportadmin">REPORT</a> -->
+         <!-- <a href="/addteacherregister">ADD TEACHERS</a> -->
+
+
+
+         <a href="/logout">LOGOUT</a>
+      </nav>
+   </header>
+
+   <!-- account form section starts  -->
+
+   <div class="account-form">
+
+      <div id="close-form" class="fas fa-times"></div>
+
+
+
+   </div>
+
+
+   <!-- about section starts  -->
+   <div class="container">
+      <div class="content-container">
+   
+     
+         <div class="form-container">
+            <form action="/teacherlogin" method="POST" enctype="multipart/form-data">
+               <div class="row">
+                  <div class="col-25">
+                     <label for="fname">Teacher Name</label>
+                  </div>
+                  <div class="col-75">
+                     <input type="text" id="Username" name="Username" placeholder="Your name.." required>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="lname"> Teacher Email</label>
+                  </div>
+                  <div class="col-75">
+                     <input type="text" id="Email" name="Email" placeholder="Your Email address.." required>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="mail">Teacher password</label>
+                  </div>
+                  <div class="col-75">
+                     <input type="text" id="Password" name="Password"   placeholder="Your Password.." required>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-25">
+                     <label for="mail">Teacher Mobile</label>
+                  </div>
+                  <div class="col-75">
+                     <input type="text" id="Mobile" name="Mobile"   placeholder="Your Mobile.." required>
+                  </div>
+               </div>
+
+
+               <div class="row">
+                  <div class="col-25">
+                     <label for="subject">Teacher image</label>
+                  </div>
+                  <div class="col-75">
+                     <input type="file" id="file" name="file" required>
+                  </div>
+               </div>
+               <div class="row">
+                  <input type="submit" value="Submit">
+               </div>
+            </form>
+         </div>
+        
+      </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+   <section class="footer">
+
+
+
+      <div class="credit"></div>
+
+   </section>
+
+   <!-- footer section ends -->
+
+   <script>
+      window.onload = function () {
+          var message = "{{ message }}";
+          if (message) {
+              alert(message);
+          }
+      }
+  </script>
+
+
+
+
+
+   <!-- swiper js link  -->
+   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+   
+
+</body>
+
+</html>
